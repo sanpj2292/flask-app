@@ -10,6 +10,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 # Flask modification tracker of SQLAlchemy is disabled not SQLAlchemy's Own Modification Tracker
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Help in propagating the exceptions thrown
+# by Extended Apps in Flask(Otherwise it will only throw 500 Error which is difficult
+# to debug)
+app.config['PROPAGATE_EXCEPTIONS'] = True
 # A Secure Key
 app.secret_key = 'SanPJ'
 api = Api(app)

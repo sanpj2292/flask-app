@@ -1,6 +1,7 @@
 from flask_restful import Resource, reqparse
 from models.store import StoreModel
 
+
 class Store(Resource):
     reqParser = reqparse.RequestParser()
     reqParser.add_argument('price', type=float, required=True, help='This field is required')
@@ -32,5 +33,4 @@ class Store(Resource):
 
 class StoreList(Resource):
     def get(self):
-        return {'stores': [store.json() for store in StoreModel.query.all()]}
-    pass
+        return {'stores': [store.json() for store in StoreModel.find_all()]}

@@ -21,7 +21,7 @@ class Item(Resource):
         if ItemModel.findByName(name):
             return {'message': f'Item with name {name} already exists'}, 400
         data = Item.reqParser.parse_args()
-        insert_item = ItemModel(_id=None, name=name, price=data['price'], store_id=data['store_id'])
+        insert_item = ItemModel(_id=None, name=name, **data)
         try:
             insert_item.save_to_db()
         except:
@@ -55,5 +55,5 @@ class Item(Resource):
 
 class ItemList(Resource):
     def get(self):
-        items = ItemModel.castToItems(ItemModel.query.all())
+        items = ItemModel.castToItems(ItemModel.find_all())
         return {'items': items}
