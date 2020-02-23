@@ -27,7 +27,6 @@ class Store(Resource):
         store = StoreModel.findByName(name)
         if store:
             store.delete(name)
-
         return {'message': f'Store has been with name \'{name}\' deleted'}
 
 

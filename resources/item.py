@@ -1,6 +1,5 @@
-from apps import reqparse, jwt_required, Resource
-import sqlite3
-
+from flask_restful import reqparse, Resource
+from flask_jwt import jwt_required
 from models.item import ItemModel
 
 

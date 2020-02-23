@@ -258,5 +258,4 @@ pip-selfcheck.json
 
 ### DB Files not to committed
 *.db
-*__init__.py
 *.idea
